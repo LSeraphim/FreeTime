@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import Login from './Login';
+import Login from './src/telas/Login';
 
 export default function App() {
   return (
