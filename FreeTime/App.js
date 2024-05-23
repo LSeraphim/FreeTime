@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
-import Registro from './src/telas/Registro';
+import Login from './src/telas/Login';
 
 export default function App() {
   return (
     <View style={styles.container}>
-     <Registro />
+     <Login />
     </View>
   );
 }
