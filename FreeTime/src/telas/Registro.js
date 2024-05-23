@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, SafeAreaView,  } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
 export default function Registro() {
