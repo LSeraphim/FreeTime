@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Image, TextInput, SafeAreaView } from 'react-na
 export default function Login() {
   return (
     <SafeAreaView style={styles.container}>
-      {/* <StatusBar style="auto" /> */}
+      { <StatusBar style="auto" /> }
       <View style={styles.logoContainer}>
         <Image style={styles.logoFT} source={require('../../components/img/LogoApp.png')} />
       </View>
