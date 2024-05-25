@@ -11,34 +11,42 @@ export default function Registro() {
     return (
         <SafeAreaView style={styles.container}>
           { <StatusBar style="auto" /> }
+          
           {/* Container do header com "Register" */}
           <View style={styles.headerContainer}>
             <Text style={{fontSize:32, color:'#ffff', textAlign:'center'}}>Registrar-se</Text>
             <AntDesign name='back' color={'#fff'} size={25} />
           </View>
+
           {/* Dados do usuário */}
           <View style={styles.userContainer}>
             <View style={styles.inputContainer}>
+              
                 <Text style={{fontSize:16}}>Nome Completo</Text>
                 <View style={styles.inputBox}>
                   <TextInput  onChangeText={""} placeholder='Seu nome de usuário'/>
                 </View>
+
                 <Text style={{fontSize:16}}>Usuário</Text>
                 <View style={styles.inputBox}>
                   <TextInput  onChangeText={""} placeholder='Sua senha'/>
                 </View>
+
                 <Text style={{fontSize:16}}>E-mail</Text>
                 <View style={styles.inputBox}>
                   <TextInput  onChangeText={""} placeholder='Sua senha'/>
                 </View>
+
                 <Text style={{fontSize:16}}>Senha</Text>
                 <View style={styles.inputBox}>
                   <TextInput  onChangeText={""} placeholder='Sua senha'/>
                 </View>
+
                 <Text style={{fontSize:16}}>Confirmar Senha</Text>
                 <View style={styles.inputBox}>
                   <TextInput  onChangeText={""} placeholder='Sua senha'/>
                 </View>
+
               </View>
             </View>
             {/* Button */}
