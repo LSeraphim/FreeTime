@@ -5,10 +5,12 @@ export default function Login() {
   return (
     <SafeAreaView style={styles.container}>
       { <StatusBar style="auto" /> }
+      
       {/* Container com Logo */}
-      <View style={styles.logoContainer}>
-        <Image style={styles.logoFT} source={require('../../components/img/LogoApp.png')} />
+      <View style={styles.logoContainer}>/
+        <Image style={styles.logoFT} source={require('../../../components/img/LogoApp.png')} />
       </View>
+
       {/* Container com dados do usuário */}
       <View style={styles.userContainer}>
         <View style={styles.inputContainer}>
@@ -16,21 +18,26 @@ export default function Login() {
             <View style={styles.inputBox}>
               <TextInput  onChangeText={""} placeholder='Seu nome de usuário'/>
             </View>
+
             <Text style={{fontSize:16}}>Senha</Text>
             <View style={styles.inputBox}>
               <TextInput  onChangeText={""} placeholder='Sua senha'/>
             </View>
+
           </View>
           <View style={styles.containerButton}>
             <Text style={{color: '#ffff', fontSize: 24}}>Entrar</Text>
           </View>
+
           <Text style={{fontSize:10, marginBottom:50}}>Esqueci minha senha</Text>
+
           {/* Acessar contas com outros apps */}
           <Text>Entrar com</Text>
           <View style={styles.accountContainer}>
-            <Image style={styles.accountIcons} source={require('../../components/img/LogoGoogle.png')} />
-            <Image style={styles.accountIcons} source={require('../../components/img/LogoApple.png')} />
+            <Image style={styles.accountIcons} source={require('../../../components/img/LogoGoogle.png')} />
+            <Image style={styles.accountIcons} source={require('../../../components/img/LogoApple.png')} />
           </View>
+          
           {/* Ponte para o Register */}
           <Text style={styles.createAccount}>Criar uma conta</Text>
         </View>

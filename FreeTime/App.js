@@ -1,11 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native';
-import Login from './src/telas/Login';
+import React from 'react';
+import { StyleSheet, View, StatusBar } from 'react-native';
+import Login from './src/telas/Login/';
+
+import { NavigationContainer } from '@react-navigation/native';
+import Routes from './src/routes';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-     <Login />
-    </View>
+    <NavigationContainer>
+      <StatusBar backgroundColor={'#04777D'}/>
+      <Routes />
+    </NavigationContainer>
   );
 }
 
