@@ -1,8 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput, SafeAreaView,  } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, SafeAreaView, TouchableOpacity  } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
+import * as Animatable from 'react-native-animatable';
+import { useNavigation } from '@react-navigation/native';
+
 export default function Registro() {
+  const navigation = useNavigation();
+
     return (
         <SafeAreaView style={styles.container}>
           { <StatusBar style="auto" /> }

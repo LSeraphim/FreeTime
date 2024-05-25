@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Inicio from '../telas/Inicio';
 import Login from '../telas/Login';
+import Registro from '../telas/Registro';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,7 +19,11 @@ export default function Routes(){
                 name="Login"
                 component={Login}
                 options={{ headerShown: false }}
-
+            />
+            <Stack.Screen
+                name="Registro"
+                component={Registro}
+                options={{ headerShown: false }}
             />
         </Stack.Navigator>
     )

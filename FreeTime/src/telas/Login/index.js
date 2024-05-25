@@ -2,9 +2,13 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TextInput, SafeAreaView, TouchableOpacity } from 'react-native';
 
 import * as Animatable from 'react-native-animatable';
+import { useNavigation } from '@react-navigation/native';
+
 
 
 export default function Login() {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView style={styles.container}>
       { <StatusBar style="auto" /> }
@@ -43,8 +47,11 @@ export default function Login() {
             </View>
             
             {/* Ponte para o Register */}
-            <Text style={styles.createAccount}>Criar uma conta</Text>
-
+            <TouchableOpacity
+                 onPress={ () => navigation.navigate('Registro')}
+                 style={styles.button}>
+              <Text style={styles.createAccount}>Criar uma conta</Text>
+            </TouchableOpacity>
           </Animatable.View>
     </SafeAreaView>
     
