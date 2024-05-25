@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, View, StatusBar } from 'react-native';
-import Login from './src/telas/Login/';
 
 import { NavigationContainer } from '@react-navigation/native';
 import Routes from './src/routes';

@@ -1,47 +1,51 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, SafeAreaView, TouchableOpacity } from 'react-native';
+
+import * as Animatable from 'react-native-animatable';
+
 
 export default function Login() {
   return (
     <SafeAreaView style={styles.container}>
       { <StatusBar style="auto" /> }
-      
-      {/* Container com Logo */}
-      <View style={styles.logoContainer}>/
-        <Image style={styles.logoFT} source={require('../../../components/img/LogoApp.png')} />
-      </View>
-
-      {/* Container com dados do usuário */}
-      <View style={styles.userContainer}>
-        <View style={styles.inputContainer}>
-            <Text style={{fontSize:16}}>Usuário</Text>
-            <View style={styles.inputBox}>
-              <TextInput  onChangeText={""} placeholder='Seu nome de usuário'/>
-            </View>
-
-            <Text style={{fontSize:16}}>Senha</Text>
-            <View style={styles.inputBox}>
-              <TextInput  onChangeText={""} placeholder='Sua senha'/>
-            </View>
-
-          </View>
-          <View style={styles.containerButton}>
-            <Text style={{color: '#ffff', fontSize: 24}}>Entrar</Text>
-          </View>
-
-          <Text style={{fontSize:10, marginBottom:50}}>Esqueci minha senha</Text>
-
-          {/* Acessar contas com outros apps */}
-          <Text>Entrar com</Text>
-          <View style={styles.accountContainer}>
-            <Image style={styles.accountIcons} source={require('../../../components/img/LogoGoogle.png')} />
-            <Image style={styles.accountIcons} source={require('../../../components/img/LogoApple.png')} />
-          </View>
-          
-          {/* Ponte para o Register */}
-          <Text style={styles.createAccount}>Criar uma conta</Text>
+     
+        {/* Container com Logo */}
+        <View style={styles.logoContainer}>
+          <Image style={styles.logoFT} source={require('../../../components/img/LogoApp.png')} />
         </View>
+      
 
+        {/* Container com dados do usuário */}
+        <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForm}>
+            <View style={styles.inputContainer}>
+              <Text style={{fontSize:16}}>Usuário</Text>
+              
+              <View style={styles.inputBox}>
+                <TextInput  onChangeText={""} placeholder='Seu nome de usuário'/>
+              </View>
+
+              <Text style={{fontSize:16}}>Senha</Text>
+              <View style={styles.inputBox}>
+                <TextInput  onChangeText={""} placeholder='Sua senha'/>
+              </View>
+            </View>
+            <TouchableOpacity style={styles.containerButton}>
+              <Text style={{color: '#ffff', fontSize:24}}>Entrar</Text>
+            </TouchableOpacity>
+
+            <Text style={{fontSize:10, marginBottom:50}}>Esqueci minha senha</Text>
+
+            {/* Acessar contas com outros apps */}
+            <Text>Entrar com</Text>
+            <View style={styles.accountContainer}>
+              <Image style={styles.accountIcons} source={require('../../../components/img/LogoGoogle.png')} />
+              <Image style={styles.accountIcons} source={require('../../../components/img/LogoApple.png')} />
+            </View>
+            
+            {/* Ponte para o Register */}
+            <Text style={styles.createAccount}>Criar uma conta</Text>
+
+          </Animatable.View>
     </SafeAreaView>
     
     
@@ -50,30 +54,29 @@ export default function Login() {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#fff',
-        alignItems: 'center'
+        backgroundColor: '#04777D',
+        flex:1,
     },
   logoFT: {
-    width: 180,
-    height:180,
+    width: 130,
+    height:130,
   },
   logoContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(4, 119, 125, 1)',
-    alignItems: 'center',
-    width: '100%',
-    height: '18%',
-    borderBottomLeftRadius: 75,
-    borderBottomRightRadius: 75,
+    flex:1,
+        backgroundColor: '#04777D',
+        justifyContent: 'center',
+        alignItems: 'center',
   },
-  userContainer: {
-    paddingTop: 40,
-    backgroundColor: '#ffff',
-    width: '80%',
-    height: '100%',
+  containerForm:{
+    flex:3,
+    backgroundColor:'#fff',
+    borderTopLeftRadius: 60,
+    borderTopRightRadius: 60,
+    paddingStart: '10%',
+    paddingEnd: '10%',
     alignItems: 'center',
-  },
+    paddingTop: 50
+},
   inputContainer:{
     width: '100%'
   },

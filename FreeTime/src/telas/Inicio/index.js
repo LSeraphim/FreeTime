@@ -1,9 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
-import * as Animatable from 'react-native-animatable'
+import * as Animatable from 'react-native-animatable';
+
+import { useNavigation } from '@react-navigation/native';
 
 export default function Inicio() {
+    const navigation = useNavigation();
+
     return(
         <View style={styles.container}>
             
@@ -15,11 +19,13 @@ export default function Inicio() {
                 resizeMode='contain' />
             </View>
 
-            <Animatable.View delay={600} animation='fadeInUp' style={styles.containerForm}>
+            <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForm}>
                 <Text style={styles.title}>Foque na sua trilha de estudos de qualquer lugar!</Text>
                 <Text style={styles.text}>Faça o Login para começar</Text>
 
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity
+                 onPress={ () => navigation.navigate('Login')}
+                 style={styles.button}>
                     <Text style={styles.buttonText}>Começar</Text>
                 </TouchableOpacity>
 
