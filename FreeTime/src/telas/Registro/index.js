@@ -44,76 +44,74 @@ export default function Registro() {
         <SafeAreaView style={styles.container}>
           { <StatusBar style="auto" /> }
           
-          {/* Container do header com "Register" */}
-          <View style={styles.headerContainer}>
-            <Text style={{fontSize:32, color:'#ffff', textAlign:'center'}}>Registrar-se</Text>
-            <AntDesign name='back' color={'#fff'} size={25} />
-          </View>
 
-          {/* Dados do usuário */}
-          <View style={styles.userContainer}>
-            <View style={styles.inputContainer}>
-              
-                <Text style={{fontSize:16}}>Nome Completo</Text>
-                <View style={styles.inputBox}>
-                  <TextInput  onChangeText={""} placeholder='Seu nome de usuário'/>
-                </View>
-
-                <Text style={{fontSize:16}}>Usuário</Text>
-                <View style={styles.inputBox}>
-                  <TextInput  onChangeText={""} placeholder='Sua senha'/>
-                </View>
-
-                <Text style={{fontSize:16}}>E-mail</Text>
-                <View style={styles.inputBox}>
-                  <TextInput  onChangeText={""} placeholder='Sua senha'/>
-                </View>
-
-                <Text style={{fontSize:16}}>Senha</Text>
-                <View style={styles.inputBox}>
-                  <TextInput  onChangeText={""} placeholder='Sua senha'/>
-                </View>
-
-                <Text style={{fontSize:16}}>Confirmar Senha</Text>
-                <View style={styles.inputBox}>
-                  <TextInput  onChangeText={""} placeholder='Sua senha'/>
-                </View>
-
-              </View>
+            {/* Container do header com "Register" */}
+            <View style={styles.headerContainer}>
+              <Text style={{fontSize:32, color:'#ffff', textAlign:'center'}}>Registrar-se</Text>
+              <TouchableOpacity
+              onPress={ () => navigation.navigate('Login')}>
+                <AntDesign name='back' color={'#fff'} size={25} />
+              </TouchableOpacity>
             </View>
-            {/* Button */}
-            <View style={styles.containerButton}>
-                <Text style={{color: '#ffff', fontSize: 24}}>Registrar-se</Text>
+
+            {/* Dados do usuário */}
+          <Animatable.View delay={100} animation="bounceInLeft" style={styles.containerForm}>
+            <View style={styles.inputContainer}>
+              <Text style={{fontSize:16}}>Nome Completo</Text>
+              <View style={styles.inputBox}>
+                <TextInput  onChangeText={""} placeholder='Seu nome completo'/>
               </View>
-    
+
+              <Text style={{fontSize:16}}>Usuário</Text>
+              <View style={styles.inputBox}>
+                <TextInput  onChangeText={""} placeholder='Seu nome de usuário'/>
+              </View>
+
+              <Text style={{fontSize:16}}>E-mail</Text>
+              <View style={styles.inputBox}>
+                <TextInput  onChangeText={""} placeholder='Seu E-mail'/>
+              </View>
+
+              <Text style={{fontSize:16}}>Senha</Text>
+              <View style={styles.inputBox}>
+                <TextInput  onChangeText={""} placeholder='Sua senha'/>
+              </View>
+
+              <Text style={{fontSize:16}}>Confirmar Senha</Text>
+              <View style={styles.inputBox}>
+                <TextInput  onChangeText={""} placeholder='Confirme a senha'/>
+              </View>
+            </View>    
+              {/* Button */}
+              <View style={styles.containerButton}>
+                  <Text style={{color: '#ffff', fontSize: 24}}>Registrar-se</Text>
+            </View>
+          </Animatable.View>
         </SafeAreaView>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        height:'100%'
+        backgroundColor: '#04777D',
+        flex:1
     },
     headerContainer: {
-        justifyContent: 'center',
-        backgroundColor: 'rgba(4, 119, 125, 1)',
-        width: '100%',
-        height: '15%',
-        borderBottomLeftRadius: 45,
-        borderBottomRightRadius: 45,
-        padding:15
+      flex:1,
+      backgroundColor: '#04777D',
+      justifyContent: 'center',
+      paddingStart: '5%',
+      paddingEnd: '5%',
     },
     userContainer: {
         paddingTop: 20,
-        backgroundColor: '#fff',
         width: '80%',
     },
+    inputContainer:{
+      width: '100%'
+    },
     inputBox: {
-      justifyContent: 'center',
       width: '100%',
-      paddingTop: 10,
       borderBottomColor: '#020202',
       borderBottomWidth: 1,
       marginBottom: 40
@@ -126,5 +124,16 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       borderRadius: 60,
       marginBottom: 20
-    }
+    },
+    containerForm:{
+      flex:4,
+      backgroundColor:'#fff',
+      borderTopLeftRadius: 60,
+      borderTopRightRadius: 60,
+      paddingStart: '10%',
+      paddingEnd: '10%',
+      alignItems: 'center',
+      textAlign: 'left',
+      paddingTop: 50,
+  }
 });
