@@ -1,11 +1,13 @@
+CREATE DATABASE FreeTime;
+
+USE FreeTime;
+
 CREATE TABLE ContaUsuario (
-	UsuarioId INT NOT NULL PRIMARY KEY,
+	UsuarioId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     Email VARCHAR(50),
     Senha VARCHAR(16),
     NomeCompleto VARCHAR(200),
-	NomeUsuario VARCHAR(25),
-    EmailGoogle VARCHAR(50),
-    Foto VARCHAR(200)
+	NomeUsuario VARCHAR(25)
 );
 
 CREATE TABLE Titulos (
