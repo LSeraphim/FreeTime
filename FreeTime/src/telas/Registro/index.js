@@ -4,9 +4,41 @@ import { AntDesign } from '@expo/vector-icons';
 
 import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
+import { useState } from 'react';
 
 export default function Registro() {
   const navigation = useNavigation();
+  const [dadosRegistro, setDadosRegistro] = useState({
+    email: '',
+    senha: '',
+    nomeCompleto: '',
+    nomeUsuario: '',
+    emailGoogle: '',
+    foto: '',
+  });
+  
+  const registrarUsuario = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/registro', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dadosRegistro)
+      });
+
+      if (response.ok) {
+        alert('Usuário registrado com sucesso');
+        // Redirecionar para a próxima tela após o registro bem-sucedido
+        navigation.navigate('ProximaTela');
+      } else {
+        throw new Error('Erro ao registrar usuário');
+      }
+    } catch (error) {
+      console.error('Erro ao registrar usuário:', error.message);
+      alert('Erro ao registrar usuário. Por favor, tente novamente mais tarde.');
+    }
+  };
 
     return (
         <SafeAreaView style={styles.container}>
