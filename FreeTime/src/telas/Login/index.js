@@ -20,7 +20,7 @@ export default function Login() {
       
 
         {/* Container com dados do usuário */}
-        <Animatable.View delay={100} animation="fadeInUp" style={styles.containerForm}>
+        <Animatable.View delay={100} animation="fadeInUpBig" style={styles.containerForm}>
             <View style={styles.inputContainer}>
               <Text style={{fontSize:16}}>Usuário</Text>
               
@@ -74,8 +74,8 @@ const styles = StyleSheet.create({
   logoContainer: {
     flex:1,
     backgroundColor: '#04777D',
-        justifyContent: 'center',
-        alignItems: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   containerForm:{
     flex:3,
