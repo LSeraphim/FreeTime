@@ -20,7 +20,7 @@ export default function Login() {
       
 
         {/* Container com dados do usuário */}
-        <Animatable.View delay={100} animation="fadeInUp" style={styles.containerForm}>
+        <Animatable.View delay={100} animation="fadeInUpBig" style={styles.containerForm}>
             <View style={styles.inputContainer}>
               <Text style={{fontSize:16}}>Usuário</Text>
               
@@ -33,18 +33,21 @@ export default function Login() {
                 <TextInput  onChangeText={""} placeholder='Sua senha'/>
               </View>
             </View>
-            <TouchableOpacity style={styles.containerButton}>
+            <TouchableOpacity 
+              onPress={ () => navigation.navigate('home')}
+              style={styles.containerButton}>
               <Text style={{color: '#ffff', fontSize:24}}>Entrar</Text>
             </TouchableOpacity>
 
             <Text style={{fontSize:10, marginBottom:50}}>Esqueci minha senha</Text>
 
             {/* Acessar contas com outros apps */}
-            <Text>Entrar com</Text>
+              <Text>Entrar com</Text>
             <View style={styles.accountContainer}>
               <Image style={styles.accountIcons} source={require('../../../components/img/LogoGoogle.png')} />
               <Image style={styles.accountIcons} source={require('../../../components/img/LogoApple.png')} />
             </View>
+
             
             {/* Ponte para o Register */}
             <TouchableOpacity
@@ -71,8 +74,8 @@ const styles = StyleSheet.create({
   logoContainer: {
     flex:1,
     backgroundColor: '#04777D',
-        justifyContent: 'center',
-        alignItems: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   containerForm:{
     flex:3,
