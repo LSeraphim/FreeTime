@@ -1,9 +1,9 @@
 const express = require('express');
 const mysql = require('mysql');
-const bodyParse = require('body-parser');
+const bodyParser = require('body-parser');
 
 const app = express();
-const port = 3000;
+const port = 8081;
 
 app.use(bodyParser.json());
 
@@ -24,9 +24,9 @@ db.connect((err) => {
 // Rota para Inserir um novo usuário
 
 app.post('/registro', (req, res) => {
-    const {email, senha, nomeCompleto, nomeUsuario, emailGoogle, foto} = req.body;
+    const {email, senha, nomeCompleto, nomeUsuario, emailGoogle} = req.body;
     const sql = `INSERT INTO ContaUsuario (Email, Senha, NomeCompleto, NomeUsuario, EmailGoogle, Foto) VALUES (?, ?, ?, ?, ?, ?)`;
-    db.query(sql, [email, senha, nomeCompleto, nomeUsuario, emailGoogle, foto], (err, result) => {
+    db.query(sql, [email, senha, nomeCompleto, nomeUsuario, emailGoogle], (err, result) => {
         if (err) {
             console.error('Erro ao inserir usuario', err);
             res.status(500).send('Erro interno do servidor');

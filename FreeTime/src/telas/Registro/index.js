@@ -14,12 +14,11 @@ export default function Registro() {
     nomeCompleto: '',
     nomeUsuario: '',
     emailGoogle: '',
-    foto: '',
   });
-  
+
   const registrarUsuario = async () => {
     try {
-      const response = await fetch('http://localhost:3000/registro', {
+      const response = await fetch('https://192.168.77.81:8081/Registro', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -30,7 +29,7 @@ export default function Registro() {
       if (response.ok) {
         alert('Usuário registrado com sucesso');
         // Redirecionar para a próxima tela após o registro bem-sucedido
-        navigation.navigate('ProximaTela');
+        navigation.navigate('Login');
       } else {
         throw new Error('Erro ao registrar usuário');
       }
@@ -83,9 +82,11 @@ export default function Registro() {
               </View>
             </View>    
               {/* Button */}
-              <View style={styles.containerButton}>
-                  <Text style={{color: '#ffff', fontSize: 24}}>Registrar-se</Text>
-            </View>
+            <TouchableOpacity onPress={registrarUsuario}>
+                <View style={styles.containerButton}>
+                    <Text style={{color: '#ffff', fontSize: 24}}>Registrar-se</Text>
+                </View>
+            </TouchableOpacity>
           </Animatable.View>
         </SafeAreaView>
     );
