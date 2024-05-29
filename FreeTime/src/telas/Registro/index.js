@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, SafeAreaView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, SafeAreaView, TouchableOpacity, ScrollView } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { useState } from 'react';
 
@@ -7,6 +7,7 @@ import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
 
 export default function Registro() {
+  const navigation = useNavigation();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -31,42 +32,44 @@ export default function Registro() {
             />
           </View>
 
-          <Text style={{ fontSize: 16 }}>Usuário</Text>
-          <View style={styles.inputBox}>
-            <TextInput
-              onChangeText={""}
-              placeholder='Seu nome de usuário'
-            />
-          </View>
+          <ScrollView>
+            <Text style={{ fontSize: 16 }}>Usuário</Text>
+            <View style={styles.inputBox}>
+              <TextInput
+                onChangeText={""}
+                placeholder='Seu nome de usuário'
+              />
+            </View>
 
-          <Text style={{ fontSize: 16 }}>E-mail</Text>
-          <View style={styles.inputBox}>
-            <TextInput
-              onChangeText={""}
-              placeholder='Seu E-mail'
-            />
-          </View>
+            <Text style={{ fontSize: 16 }}>E-mail</Text>
+            <View style={styles.inputBox}>
+              <TextInput
+                onChangeText={""}
+                placeholder='Seu E-mail'
+              />
+            </View>
 
-          <Text style={{ fontSize: 16 }}>Senha</Text>
-          <View style={styles.inputBox}>
-            <TextInput
-              onChangeText={""}
-              placeholder='Sua senha'
-              secureTextEntry
-            />
-          </View>
+            <Text style={{ fontSize: 16 }}>Senha</Text>
+            <View style={styles.inputBox}>
+              <TextInput
+                onChangeText={""}
+                placeholder='Sua senha'
+                secureTextEntry
+              />
+            </View>
 
-          <Text style={{ fontSize: 16 }}>Confirmar Senha</Text>
-          <View style={styles.inputBox}>
-            <TextInput
-              onChangeText={""}
-              placeholder='Confirme a senha'
-              secureTextEntry
-            />
-          </View>
+            <Text style={{ fontSize: 16 }}>Confirmar Senha</Text>
+            <View style={styles.inputBox}>
+              <TextInput
+                onChangeText={""}
+                placeholder='Confirme a senha'
+                secureTextEntry
+              />
+            </View>
+          </ScrollView>
         </View>
         {/* Button */}
-        <TouchableOpacity onPress={registrarUsuario}>
+        <TouchableOpacity>
           <View style={styles.containerButton}>
             <Text style={{ color: '#ffff', fontSize: 24 }}>Registrar-se</Text>
           </View>
