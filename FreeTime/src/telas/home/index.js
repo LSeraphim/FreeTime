@@ -13,13 +13,13 @@ export default function Home() {
       { <StatusBar style="auto" /> }
 
         <View style={styles.headerContainer}>
+          <View style={styles.headerBox}>
             <Text style={{color: '#ffff', fontSize: 15}}>Liga <Text style={styles.ligaText}>MONGE</Text> da concentração</Text>
             <Image style={styles.logoFt} source={require('../../../components/img/JapaAvatar.jpg')} />
-            <View style={styles.subHeader}>
-                <ProgressBarAndroidBase styleAttr="Horizontal"
-                    indeterminate={false}
-                    progress={0.5}/>
-            </View>
+          </View>  
+          <View style={styles.subHeader}>
+
+          </View>
         </View>
 
     </SafeAreaView>
@@ -31,18 +31,17 @@ const styles = StyleSheet.create({
         flex:1,
     },
     headerContainer:{
-        flexDirection: 'row',
         backgroundColor: '#04777D',
-        borderColor: '#0000',
-        borderWidth:1,
-        alignItems: 'center',
-        justifyContent: 'space-between',
         width: '100%',
-        paddingEnd: '5%',
-        paddingStart: '5%',
-        paddingTop: '10%'
-        
-
+        paddingTop: '8%'
+    },
+    headerBox:{
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      paddingEnd: '5%',
+      paddingStart: '5%',
+      
     },
     logoFt:{
         width: 95,
@@ -54,5 +53,12 @@ const styles = StyleSheet.create({
     ligaText:{
         fontWeight: 'bold',
         fontSize: 25
+    },
+    subHeader:{
+      backgroundColor:"#048A91",
+      width:'100%',
+      height: 80,
+      borderTopLeftRadius: 12,
+      borderTopRightRadius:12 ,
     }
   })
