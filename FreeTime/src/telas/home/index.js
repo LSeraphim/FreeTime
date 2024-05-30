@@ -1,25 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput, SafeAreaView, TouchableOpacity, ProgressBarAndroidBase } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, SafeAreaView, TouchableOpacity } from 'react-native';
 
 import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
+import { useEffect, useState } from 'react';
+
+
 
 export default function Home() {
 
   const navigation = useNavigation();
-  
+
   return(
     <SafeAreaView style={styles.container}>
       { <StatusBar style="auto" /> }
 
         <View style={styles.headerContainer}>
+
           <View style={styles.headerBox}>
             <Text style={{color: '#ffff', fontSize: 15}}>Liga <Text style={styles.ligaText}>MONGE</Text> da concentração</Text>
             <Image style={styles.logoFt} source={require('../../../components/img/JapaAvatar.jpg')} />
           </View>  
-          <View style={styles.subHeader}>
 
+          <View style={styles.subHeader}>
+            <View style={styles.progress}>
+              
+            </View>
           </View>
+
         </View>
 
     </SafeAreaView>
@@ -60,5 +68,6 @@ const styles = StyleSheet.create({
       height: 80,
       borderTopLeftRadius: 12,
       borderTopRightRadius:12 ,
-    }
+    },
+    
   })

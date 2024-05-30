@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, Image, TextInput, SafeAreaView, TouchableOpacit
 
 import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
+import Forms from '../../Componentes/Forms';
+import Button from '../../Componentes/Button';
 
 
 
@@ -10,7 +12,9 @@ export default function Login() {
   const navigation = useNavigation();
 
   return (
+
     <SafeAreaView style={styles.container}>
+
       { <StatusBar style="auto" /> }
      
         {/* Container com Logo */}
@@ -21,28 +25,19 @@ export default function Login() {
 
         {/* Container com dados do usuário */}
         <Animatable.View delay={100} animation="fadeInUpBig" style={styles.containerForm}>
-            <View style={styles.inputContainer}>
-              <Text style={{fontSize:16}}>Usuário</Text>
-              
-              <View style={styles.inputBox}>
-                <TextInput  onChangeText={""} placeholder='Seu nome de usuário'/>
-              </View>
 
-              <Text style={{fontSize:16}}>Senha</Text>
-              <View style={styles.inputBox}>
-                <TextInput  onChangeText={""} placeholder='Sua senha'/>
-              </View>
+            <View style={styles.inputContainer}>
+              <Forms myPlaceholder={'Seu nome de usuário'} myText={'Usuário'} />
+              
+              <Forms myPlaceholder={'Sua senha'} myText={'Senha'} />
             </View>
-            <TouchableOpacity 
-              onPress={ () => navigation.navigate('home')}
-              style={styles.containerButton}>
-              <Text style={{color: '#ffff', fontSize:24}}>Entrar</Text>
-            </TouchableOpacity>
+
+            <Button myText={'Entrar'} myPress={() => navigation.navigate('home')}/>
 
             <Text style={{fontSize:10, marginBottom:50}}>Esqueci minha senha</Text>
 
             {/* Acessar contas com outros apps */}
-              <Text>Entrar com</Text>
+            <Text>Entrar com</Text>
             <View style={styles.accountContainer}>
               <Image style={styles.accountIcons} source={require('../../../components/img/LogoGoogle.png')} />
               <Image style={styles.accountIcons} source={require('../../../components/img/LogoApple.png')} />
@@ -51,11 +46,13 @@ export default function Login() {
             
             {/* Ponte para o Register */}
             <TouchableOpacity
-                 onPress={ () => navigation.navigate('Registro')}
-                 style={styles.button}>
+                onPress={ () => navigation.navigate('Registro')}
+                style={styles.button}>
               <Text style={styles.createAccount}>Criar uma conta</Text>
             </TouchableOpacity>
+
           </Animatable.View>
+          
     </SafeAreaView>
     
     
@@ -87,17 +84,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 50
 },
-  inputContainer:{
-    width: '100%'
-  },
-  inputBox: {
-    justifyContent: 'center',
-    width: '100%',
-    paddingTop: 10,
-    borderBottomColor: '#020202',
-    borderBottomWidth: 1,
-    marginBottom: 40
-  },
+inputContainer:{
+  width: '100%'
+},
   containerButton: {
     backgroundColor: 'rgba(4, 119, 125, 1)',
     width: 131,
