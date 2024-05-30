@@ -13,7 +13,8 @@ export default function Inicio() {
             
             <View style={styles.containerLogo}>
                 <Animatable.Image  
-                animation="flipInY"
+                delay={600}
+                animation="zoomIn"
                 source={require('../../../components/img/LogoApp.png')}
                 style={{ width: '100%' }}
                 resizeMode='contain' />
