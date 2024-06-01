@@ -4,11 +4,11 @@ import { StyleSheet, Text, View, Image, TextInput, SafeAreaView, TouchableOpacit
 import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
 import { useEffect, useState } from 'react';
+import ProgressBar from '../../Componentes/ProgressBar';
 
 
 
 export default function Home() {
-
   const navigation = useNavigation();
 
   return(
@@ -23,9 +23,7 @@ export default function Home() {
           </View>  
 
           <View style={styles.subHeader}>
-            <View style={styles.progress}>
-              
-            </View>
+            <ProgressBar />
           </View>
 
         </View>
@@ -68,6 +66,7 @@ const styles = StyleSheet.create({
       height: 80,
       borderTopLeftRadius: 12,
       borderTopRightRadius:12 ,
+      padding: 20,
     },
     
   })
