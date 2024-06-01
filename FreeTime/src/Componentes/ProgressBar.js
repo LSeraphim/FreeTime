@@ -57,8 +57,9 @@ const Progress = ({ step, steps, height }) => {
             color: '#000'
           }}
         >
-          {step}/{steps}
+          {step}0%
         </Text> 
+
       </View>
       </>
     )

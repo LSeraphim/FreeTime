@@ -22,8 +22,15 @@ export default function Home() {
             <Image style={styles.logoFt} source={require('../../../components/img/JapaAvatar.jpg')} />
           </View>  
 
+
           <View style={styles.subHeader}>
             <ProgressBar />
+            <Text>Usuário</Text>
+
+          </View>
+          
+          <View style={styles.levelBar}>
+            <Text style={{fontSize: 22, fontWeight: 'semibold'}}>Nível 99</Text>
           </View>
 
         </View>
@@ -37,9 +44,11 @@ const styles = StyleSheet.create({
         flex:1,
     },
     headerContainer:{
-        backgroundColor: '#04777D',
-        width: '100%',
-        paddingTop: '8%'
+      backgroundColor: '#04777D',
+      width: '100%',
+      paddingTop: '8%',
+      borderBottomLeftRadius: 20,
+      borderBottomRightRadius: 20,
     },
     headerBox:{
       flexDirection: 'row',
@@ -48,10 +57,11 @@ const styles = StyleSheet.create({
       paddingEnd: '5%',
       paddingStart: '5%',
       
+      
     },
     logoFt:{
-        width: 95,
-        height: 95,
+        width: 100,
+        height: 100,
         borderRadius: 50,
         borderColor: '#096469',
         borderWidth: 2
@@ -67,6 +77,25 @@ const styles = StyleSheet.create({
       borderTopLeftRadius: 12,
       borderTopRightRadius:12 ,
       padding: 20,
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+      borderBottomLeftRadius: 20,
+      borderBottomRightRadius: 20,
+      
     },
-    
+    levelBar:{
+      width: 100,
+      height: 40,
+      backgroundColor: '#ffff',
+      borderTopStartRadius: 5,
+      borderTopEndRadius: 5,
+      borderBottomLeftRadius: 15,
+      borderBottomRightRadius: 15,
+      position: 'absolute',
+      top: 110,
+      left: 275,
+      justifyContent: 'center',
+      alignItems: 'center'
+    }
   })
