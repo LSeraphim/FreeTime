@@ -3,8 +3,11 @@ import { StyleSheet, Text, View, Image, TextInput, SafeAreaView, TouchableOpacit
 
 import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
-import { useEffect, useState } from 'react';
+import { FontAwesome5 } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons'
+
 import ProgressBar from '../../Componentes/ProgressBar';
+import BoxContainer from '../../Componentes/BoxContainer';
 
 
 
@@ -15,7 +18,13 @@ export default function Home() {
     <SafeAreaView style={styles.container}>
       { <StatusBar style="auto" /> }
 
+        {/*Engloba todo o Header   */}
         <View style={styles.headerContainer}>
+
+          {/*Exibirá o nome do usuário  */}
+            <View>
+              <Text style={{fontSize: 20, fontWeight: 'bold', color: '#ffff'}}>Usuário</Text>
+            </View>
 
           <View style={styles.headerBox}>
             <Text style={{color: '#ffff', fontSize: 15}}>Liga <Text style={styles.ligaText}>MONGE</Text> da concentração</Text>
@@ -24,15 +33,24 @@ export default function Home() {
 
 
           <View style={styles.subHeader}>
-            <ProgressBar />
-            <Text>Usuário</Text>
 
+            <View style={styles.iconBox} >
+              <FontAwesome5 name="running" size={24} color="white" />
+              <MaterialCommunityIcons name="brain" size={24} color="white" />
+            </View>
+
+            <ProgressBar />
           </View>
           
           <View style={styles.levelBar}>
             <Text style={{fontSize: 22, fontWeight: 'semibold'}}>Nível 99</Text>
           </View>
 
+        </View>
+
+        <View style={styles.bodyContainer}>
+          <Text style={{fontSize: 25}}>Tempo de tela</Text>
+          <BoxContainer boxSideW={'100%'} boxSideH={'70%'} />
         </View>
 
     </SafeAreaView>
@@ -46,7 +64,7 @@ const styles = StyleSheet.create({
     headerContainer:{
       backgroundColor: '#04777D',
       width: '100%',
-      paddingTop: '8%',
+      paddingTop: '5%',
       borderBottomLeftRadius: 20,
       borderBottomRightRadius: 20,
     },
@@ -56,8 +74,6 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between',
       paddingEnd: '5%',
       paddingStart: '5%',
-      
-      
     },
     logoFt:{
         width: 100,
@@ -73,29 +89,36 @@ const styles = StyleSheet.create({
     subHeader:{
       backgroundColor:"#048A91",
       width:'100%',
-      height: 80,
       borderTopLeftRadius: 12,
       borderTopRightRadius:12 ,
-      padding: 20,
-      flexDirection: 'row',
+      padding: 15,
       justifyContent: 'space-around',
-      alignItems: 'center',
       borderBottomLeftRadius: 20,
       borderBottomRightRadius: 20,
-      
     },
     levelBar:{
       width: 100,
       height: 40,
       backgroundColor: '#ffff',
-      borderTopStartRadius: 5,
-      borderTopEndRadius: 5,
-      borderBottomLeftRadius: 15,
-      borderBottomRightRadius: 15,
+      borderTopStartRadius: 8,
+      borderTopEndRadius: 8,
+      borderBottomLeftRadius: 18,
+      borderBottomRightRadius: 18,
       position: 'absolute',
-      top: 110,
-      left: 275,
+      top: '65%',
+      left: '70%',
       justifyContent: 'center',
       alignItems: 'center'
-    }
+    },
+    iconBox:{
+      flexDirection: 'row',
+      width: '70%',
+      justifyContent: 'space-between'
+    },
+    bodyContainer:{
+      alignItems: 'center',
+      padding: 15,
+      flex:1
+    },
+   
   })

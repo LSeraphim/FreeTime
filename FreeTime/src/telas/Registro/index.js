@@ -16,6 +16,7 @@ export default function Registro() {
       {/* Container do header com "Register" */}
       <View style={styles.headerContainer}>
         <Text style={{ fontSize: 32, color: '#ffff', textAlign: 'center' }}>Registrar-se</Text>
+
         <TouchableOpacity onPress={() => navigation.navigate('Login')}>
           <AntDesign name='back' color={'#fff'} size={25} />
         </TouchableOpacity>
