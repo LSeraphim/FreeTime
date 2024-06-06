@@ -1,10 +1,8 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
-import { useNavigation } from '@react-navigation/native';
 
 
 export default props => {
-    const navigation = useNavigation();
     const myPress = props.myPress;
 
     const myText = props.myText;

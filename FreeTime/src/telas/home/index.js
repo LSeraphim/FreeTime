@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput, SafeAreaView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, SafeAreaView, TouchableOpacity, ScrollView } from 'react-native';
 
 import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
@@ -15,45 +15,50 @@ export default function Home() {
   const navigation = useNavigation();
 
   return(
-    <SafeAreaView style={styles.container}>
-      { <StatusBar style="auto" /> }
+    <ScrollView>
 
-        {/*Engloba todo o Header   */}
-        <View style={styles.headerContainer}>
+      <SafeAreaView style={styles.container}>
+        { <StatusBar style="auto" /> }
 
-          {/*Exibirá o nome do usuário  */}
-            <View>
-              <Text style={{fontSize: 20, fontWeight: 'bold', color: '#ffff'}}>Usuário</Text>
+          {/*Engloba todo o Header   */}
+          <View style={styles.headerContainer}>
+
+            {/*Exibirá o nome do usuário  */}
+              <View>
+                <Text style={{fontSize: 20, fontWeight: 'bold', color: '#ffff'}}>Usuário</Text>
+              </View>
+
+            <View style={styles.headerBox}>
+              <Text style={{color: '#ffff', fontSize: 15}}>Liga <Text style={styles.ligaText}>MONGE</Text> da concentração</Text>
+              <Image style={styles.logoFt} source={require('../../../components/img/JapaAvatar.jpg')} />
+            </View>  
+
+
+            <View style={styles.subHeader}>
+
+              <View style={styles.iconBox} >
+                <FontAwesome5 name="running" size={24} color="white" />
+                <MaterialCommunityIcons name="brain" size={24} color="white" />
+              </View>
+
+              <ProgressBar />
+            </View>
+            
+            <View style={styles.levelBar}>
+              <Text style={{fontSize: 22, fontWeight: 'semibold'}}>Nível 99</Text>
             </View>
 
-          <View style={styles.headerBox}>
-            <Text style={{color: '#ffff', fontSize: 15}}>Liga <Text style={styles.ligaText}>MONGE</Text> da concentração</Text>
-            <Image style={styles.logoFt} source={require('../../../components/img/JapaAvatar.jpg')} />
-          </View>  
-
-
-          <View style={styles.subHeader}>
-
-            <View style={styles.iconBox} >
-              <FontAwesome5 name="running" size={24} color="white" />
-              <MaterialCommunityIcons name="brain" size={24} color="white" />
+          </View>
+            <View style={styles.bodyContainer}>
+              <Text style={{fontSize: 25}}>Tempo de tela</Text>
+              <BoxContainer boxSideW={"100%"} boxSideH={300} myColor="#04777D" myRadius={20} otherSideW={'90%'} otherSideH={'80%'} >
+                
+              </BoxContainer>
             </View>
 
-            <ProgressBar />
-          </View>
-          
-          <View style={styles.levelBar}>
-            <Text style={{fontSize: 22, fontWeight: 'semibold'}}>Nível 99</Text>
-          </View>
+      </SafeAreaView>
+    </ScrollView>
 
-        </View>
-
-        <View style={styles.bodyContainer}>
-          <Text style={{fontSize: 25}}>Tempo de tela</Text>
-          <BoxContainer boxSideW={'100%'} boxSideH={'70%'} />
-        </View>
-
-    </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({
