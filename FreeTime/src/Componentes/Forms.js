@@ -3,12 +3,13 @@ import { View, TextInput, Text, StyleSheet } from "react-native";
 export default props => {
     const myPlaceholder = props.myPlaceholder;
     const myText = props.myText;
+    const myValue = props.myValue;
 
     return (
             
             <View style={styles.inputBox}>
                 <Text style={{fontSize:20}}>{myText}</Text>
-                <TextInput  onChangeText={""} placeholder={myPlaceholder}/>
+                <TextInput  onChangeText={myValue} placeholder={myPlaceholder}/>
             </View>
     );
 }

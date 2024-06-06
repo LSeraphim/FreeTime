@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TextInput, SafeAreaView, TouchableOpacity } from 'react-native';
+import { useState } from 'react';
 
 import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
@@ -10,6 +11,9 @@ import Button from '../../Componentes/Button';
 
 export default function Login() {
   const navigation = useNavigation();
+  const [email, setEmail] = useState(null);
+  const [senha, setSenha] = useState(null);
+
 
   return (
 
@@ -27,9 +31,9 @@ export default function Login() {
         <Animatable.View delay={100} animation="fadeInUpBig" style={styles.containerForm}>
 
             <View style={styles.inputContainer}>
-              <Forms myPlaceholder={'Seu nome de usuário'} myText={'Usuário'} />
+              <Forms myPlaceholder={'Seu nome de usuário ou email'} myText={'Usuário'} myValue={setEmail}/>
               
-              <Forms myPlaceholder={'Sua senha'} myText={'Senha'} />
+              <Forms myPlaceholder={'Sua senha'} myText={'Senha'} myValue={setSenha}/>
             </View>
 
             <Button myText={'Entrar'} myPress={() => navigation.navigate('home')}/>
