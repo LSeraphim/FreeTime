@@ -29,8 +29,15 @@ export default function Login() {
       body: JSON.stringify({
         email: email,
         senha: senha
-      })
+      }),
     });
+    let json=await response.json();
+    if(json === 'error'){
+      setDisplay('flex');
+      setTimeout(()=>{
+        setDisplay('none');
+      }, 5000);
+    }
   }
 
 
@@ -53,8 +60,9 @@ export default function Login() {
               <Forms myPlaceholder={'Seu nome de usuário ou email'} myText={'Usuário'} myValue={text=>setEmail(text)}/>
               
               <Forms myPlaceholder={'Sua senha'} myText={'Senha'} myValue={text=>setSenha(text)}/>
+              <Text style={styles.displayErro(display)}>Usuario e/ou senha incorreto!</Text>
             </View>
-            <Text style={styles.displayErro}>Usuario e/ou senha incorreto!</Text>
+            
             <Button myText={'Entrar'} myPress={() => sendForm()}/>
 
             <Text style={{fontSize:10, marginBottom:50}}>Esqueci minha senha</Text>
@@ -134,13 +142,14 @@ inputContainer:{
     borderBottomWidth:1,
     marginTop: 35
   },
-  displayErro: {
+  displayErro:(text='none')=>({
     color: 'red',
     fontSize: 14,
     alignSelf: 'center',
     justifyContent: 'center',
-    display: 'flex',
-    top: -20
-  }
+    display: text,
+    top: -20,
+    fontWeight: 'bold'
+  })
 
 });

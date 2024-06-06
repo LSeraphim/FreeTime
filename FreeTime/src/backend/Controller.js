@@ -1,15 +1,23 @@
 const express=require('express');
 const cors=require('cors');
 const bodyParser=require('body-parser');
+const models=require('./models');
 
 const app=express();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-let contaUsuario=models.ContaUsuario;
+let contaUsuario = models.ContaUsuario;
 
-app.post('/login', (req,res)=>{
-    console.log(req.body);
+app.post('/login',async (req,res)=>{
+    let response=await contaUsuario.findOne({
+        where:{email:req.body.email, senha:req.body.senha}
+    });
+    if(response === null) {
+        res.send(JSON.stringify('error'));
+    }else{
+        res.send(response);
+    }
 });
 
 let port= process.env.PORT || 3000;
