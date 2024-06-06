@@ -11,8 +11,27 @@ import Button from '../../Componentes/Button';
 
 export default function Login() {
   const navigation = useNavigation();
+  // Variaveis que recebem a informação dos inputs
   const [email, setEmail] = useState(null);
   const [senha, setSenha] = useState(null);
+  const [login, setLogin] = useState(null);
+  const [display, setDisplay] = useState('none');
+
+  // Envio do formulário de Login
+  async function sendForm()
+  {
+    let response=await fetch('http://192.168.1.2:3000/login', {
+      method:'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email,
+        senha: senha
+      })
+    });
+  }
 
 
   return (
@@ -31,12 +50,12 @@ export default function Login() {
         <Animatable.View delay={100} animation="fadeInUpBig" style={styles.containerForm}>
 
             <View style={styles.inputContainer}>
-              <Forms myPlaceholder={'Seu nome de usuário ou email'} myText={'Usuário'} myValue={setEmail}/>
+              <Forms myPlaceholder={'Seu nome de usuário ou email'} myText={'Usuário'} myValue={text=>setEmail(text)}/>
               
-              <Forms myPlaceholder={'Sua senha'} myText={'Senha'} myValue={setSenha}/>
+              <Forms myPlaceholder={'Sua senha'} myText={'Senha'} myValue={text=>setSenha(text)}/>
             </View>
-
-            <Button myText={'Entrar'} myPress={() => navigation.navigate('home')}/>
+            <Text style={styles.displayErro}>Usuario e/ou senha incorreto!</Text>
+            <Button myText={'Entrar'} myPress={() => sendForm()}/>
 
             <Text style={{fontSize:10, marginBottom:50}}>Esqueci minha senha</Text>
 
@@ -114,6 +133,14 @@ inputContainer:{
     fontSize: 16,
     borderBottomWidth:1,
     marginTop: 35
+  },
+  displayErro: {
+    color: 'red',
+    fontSize: 14,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    display: 'flex',
+    top: -20
   }
 
 });
