@@ -20,7 +20,7 @@ export default function Login() {
   // Envio do formulário de Login
   async function sendForm()
   {
-    let response=await fetch('http://192.168.1.2:3000/login', {
+    let response=await fetch('http://192.168.77.81:3000/login', {
       method:'POST',
       headers: {
         Accept: 'application/json',
@@ -37,6 +37,10 @@ export default function Login() {
       setTimeout(()=>{
         setDisplay('none');
       }, 5000);
+      await AsyncStorage.clear();
+    } else {
+      console.log('testeeee');
+      navigation.navigate('home');
     }
   }
 
