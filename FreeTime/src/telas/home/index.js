@@ -49,12 +49,18 @@ export default function Home() {
             </View>
 
           </View>
-            <View style={styles.bodyContainer}>
-              <Text style={{fontSize: 25}}>Tempo de tela</Text>
-              <BoxContainer boxSideW={"100%"} boxSideH={300} myColor="#04777D" myRadius={20} otherSideW={'90%'} otherSideH={'80%'} >
-                
-              </BoxContainer>
-            </View>
+
+          <View style={styles.bodyContainer}>
+            <Text style={{fontSize: 25}}>Tempo de tela</Text>
+
+            <BoxContainer boxSideW={"100%"} boxSideH={300} myColor="#04777D" myRadius={15} otherSideW={'90%'} otherSideH={'80%'} />
+
+            <BoxContainer boxSideW={"100%"} boxSideH={230} myColor="#04777D" myRadius={15} otherSideW={'90%'} otherSideH={'80%'} />
+
+            <Text>Videos principais</Text>
+            <BoxContainer boxSideW={"100%"} boxSideH={200} myColor="#04777D" myRadius={15} />
+
+          </View>
 
       </SafeAreaView>
     </ScrollView>
@@ -123,7 +129,7 @@ const styles = StyleSheet.create({
     bodyContainer:{
       alignItems: 'center',
       padding: 15,
-      flex:1
+      flex:1,
     },
    
   })
